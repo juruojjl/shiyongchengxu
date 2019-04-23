@@ -1,0 +1,131 @@
+#include<iostream>
+#include<ctime>
+#include<cstdlib>
+#include<windows.h>
+#include<cmath>
+using namespace std; 
+int s,cuo=0,dui=0;
+double chufas;
+void jia(int a,int b)
+{
+    cout<<"对:"<<dui<<"    "<<"错:"<<cuo<<endl;
+    cout<<a<<"+"<<b<<"=";
+    cin>>s;
+    cout<<endl;
+    if(s!=a+b)
+    {
+        cuo++;
+        cout<<"答错了,正确答案是:"<<a+b<<endl;
+    }
+    else
+    {
+        dui++;
+        cout<<"答对了"<<endl;
+    }
+    Sleep(2000);
+    system("cls");
+}
+/*=======================================================加减分割线============================================================================*/
+void jian(int a,int b)
+{
+    cout<<"对:"<<dui<<"    "<<"错:"<<cuo<<endl;
+    cout<<a<<"-"<<b<<"=";
+    cin>>s;
+    cout<<endl;
+    if(s!=a-b)
+    {
+        cuo++;
+        cout<<"答错了,正确答案是:"<<a-b<<endl;
+    }
+    else
+    {
+        dui++;
+        cout<<"答对了"<<endl;
+    }
+    Sleep(2000);
+    system("cls");
+}
+/*=======================================================减乘分割线============================================================================*/
+void cheng(int a,int b)
+{
+    cout<<"对:"<<dui<<"    "<<"错:"<<cuo<<endl;
+    cout<<a<<"*"<<b<<"=";
+    cin>>s;
+    cout<<endl;
+    if(s!=a*b)
+    {
+        cuo++;
+        cout<<"答错了,正确答案是:"<<a*b<<endl;
+    }
+    else
+    {
+        dui++;
+        cout<<"答对了"<<endl;
+    }
+    Sleep(2000);
+    system("cls");
+}
+/*=======================================================乘除分割线============================================================================*/
+void chu(int a,int b)
+{
+    cout<<"对:"<<dui<<"    "<<"错:"<<cuo<<endl;
+    cout<<"此题保留6位小数并四舍五入"<<endl; 
+    cout<<a<<"/"<<b<<"=";
+    cin>>chufas;
+    cout<<endl;
+    if(chufas!=(a+0.0)/(b+0.0))
+    {
+        cuo++;
+        cout<<"答错了,正确答案是:"<<(a+0.0)/(b+0.0)<<endl;
+    }
+    else
+    {
+        dui++;
+        cout<<"答对了"<<endl;
+    }
+    Sleep(2000);
+    system("cls");
+}
+/*=======================================================main分割线============================================================================*/
+int main()
+{
+    srand(time(0));
+    system("color F0");
+    int n,a,b,w;
+    cout<<"欢迎来到口算练习程序!"<<endl;
+    cout<<"请问你想要做几道题?"<<endl;
+    cin>>n;
+    cout<<"请输入范围:";
+    cin>>w;
+    for(int i=1;i<=n;i++)
+    {
+        int x=rand()%4+1;
+        a=rand()%w+1;
+        b=rand()%w+1;
+        switch(x)
+        {
+            case 1:
+            {
+                jia(a,b);
+                break;
+            }
+            case 2:
+            {
+                jian(a,b);
+                break;
+            }
+            case 3:
+            {
+                cheng(a,b);
+                break;
+            }
+            case 4:
+            {
+                chu(a,b);
+                break;
+            }
+        }
+    }
+    cout<<"你的做题结果:对了"<<dui<<"题,错了"<<cuo<<"题"<<endl;
+    return 0;
+}
