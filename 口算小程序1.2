@@ -1,6 +1,7 @@
 #include<iostream>
 #include<ctime>
 #include<cstdlib>
+#include<conio.h>
 #include<windows.h>
 #include<cmath>
 using namespace std; 
@@ -92,6 +93,7 @@ int main()
     srand(time(0));
     system("color F0");
     int n,a,b,w;
+    char re;
     cout<<"欢迎来到口算练习程序!"<<endl;
     cout<<"请问你想要做几道题?"<<endl;
     cin>>n;
@@ -127,5 +129,13 @@ int main()
         }
     }
     cout<<"你的做题结果:对了"<<dui<<"题,错了"<<cuo<<"题"<<endl;
+    cout<<"请问你想再来一次吗?按y继续,否则结束"<<endl;
+    re=getch();
+    if(re=='y')
+    {
+    	system("cls");
+    	main();
+	}
+	else cout<<"再见!"<<endl;
     return 0;
 }
